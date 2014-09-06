@@ -1,0 +1,15 @@
+h1 {
+	margin-left: 100px;
+    font-family: terminal;
+}
+#game_div {
+  width: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  background: url('../sprites/bgTwo.jpg');
+}
