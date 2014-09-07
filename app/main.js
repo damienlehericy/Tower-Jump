@@ -47,6 +47,8 @@ var main_state = {
                 }
             };
             gameKeys = {
+                right  : game.input.keyboard.addKey(Phaser.Keyboard.D),
+                left   : game.input.keyboard.addKey(Phaser.Keyboard.Q),
                 shop   : game.input.keyboard.addKey(Phaser.Keyboard.B),
                 pause  : game.input.keyboard.addKey(Phaser.Keyboard.P),
                 restart: game.input.keyboard.addKey(Phaser.Keyboard.R)
@@ -108,18 +110,6 @@ var main_state = {
         this.UI.inGame.lifeButtonUI.input.useHandCursor    = true;
         this.UI.inGame.restartButtonUI.input.useHandCursor = true;
 
-        // Pause statut
-        this.UI.inGame.menuButtonUI.events.onInputDown.add(this.pause_game, this);
-        gameKeys.pause.onDown.add(this.pause_game, this);
-
-        // Shop
-        this.UI.inGame.lifeButtonUI.events.onInputDown.add(this.buy_life, this);
-        gameKeys.shop.onDown.add(this.buy_life, this);
-
-        // Restart game
-        this.UI.inGame.restartButtonUI.events.onInputDown.add(this.restart_game, this);
-        gameKeys.restart.onDown.add(this.restart_game, this);
-
         // Gravity
         this.bgTile.body.velocity.y = -180;
 
@@ -133,12 +123,12 @@ var main_state = {
 
     update: function() {
         // Cursors && Keyboard detection
-        if (cursors.left.isDown)
+        if (cursors.left.isDown || gameKeys.left.isDown)
         {
             this.hero.animations.stop();
             this.hero.x = this.hero.x - 5;
         }
-        else if (cursors.right.isDown)
+        else if (cursors.right.isDown || gameKeys.right.isDown)
         {
             this.hero.animations.stop();
             this.hero.x = this.hero.x + 5;
@@ -147,6 +137,18 @@ var main_state = {
         {
             this.hero.animations.play('stand', animProperties.hero.frameRate, true);
         }
+
+        // Pause statut
+        this.UI.inGame.menuButtonUI.events.onInputDown.add(this.pause_game, this);
+        gameKeys.pause.onDown.add(this.pause_game, this);
+
+        // Shop
+        this.UI.inGame.lifeButtonUI.events.onInputDown.add(this.buy_life, this);
+        gameKeys.shop.onDown.add(this.buy_life, this);
+
+        // Restart game
+        this.UI.inGame.restartButtonUI.events.onInputDown.add(this.restart_game, this);
+        gameKeys.restart.onDown.add(this.restart_game, this);
 
         // Check Life
         if (this.hero.health <= 0) {
@@ -218,11 +220,15 @@ var main_state = {
             this.hero.health = 0;
         }
 
-        this.sounds.effects.kick.stop();
-        this.sounds.effects.bird.stop();
-
-        this.sounds.effects.kick.play();
-        this.sounds.effects.bird.play();
+        if (!this.sounds.effects.kick.isPlaying || !this.sounds.effects.bird.isPlaying) {
+            if (this.sounds.effects.bird.totalDuration > 0) {
+               this.sounds.effects.bird.stop();
+               this.sounds.effects.bird.play();
+            } else {
+                this.sounds.effects.kick.play();
+                this.sounds.effects.bird.play();
+            }
+        }
     },
 
     buy_life: function () {
@@ -233,11 +239,12 @@ var main_state = {
     },
 
     game_over : function () {
-        this.hero.body.gravity.y = 20000;
+        this.hero.body.gravity.y = 18000;
 
         // stop music && start game over song
         this.sounds.music.background.stop();
         this.sounds.music.pause.stop();
+        this.sounds.effects.kick.stop();
 
         // Prevent new ennemies from appearing
         this.game.time.events.remove(this.timer);
