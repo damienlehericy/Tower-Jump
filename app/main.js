@@ -38,7 +38,7 @@ var main_state = {
         // Define global objects
         this.style  = {
             textUI : {
-                font: "28px Terminal",
+                font: "28px Rancho",
                 fill: "#fff"
             }
         };
@@ -173,7 +173,7 @@ var main_state = {
         this.hero.body.velocity.y = 0;
 
         this.bgTile.height = this.bgTile.height + 10;
-        this.UI.inGame.scoreNbrUI.content = this.score + "¾";
+        this.UI.inGame.scoreNbrUI.content = this.score + "¥";
         this.UI.inGame.lifeNbrUI.content  = this.hero.health;
     },
 
