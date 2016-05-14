@@ -1,18 +1,24 @@
-Tower Jump
-===============
+#Tower Jump
+[![Software License](https://img.shields.io/badge/license-GNU%20General%20Public%20License%20v2.0-brightgreen.svg?style=flat-square)](LICENSE)
 
-Jeu réalisé à l'aide du framework dédié aux jeux HTML5, Phaser.IO.
+Builded with Phaser.IO game framework ~1day for school.
 
-![Screen du jeux](http://i.imgur.com/yhJ6Smz.png "texte pour le titre, facultatif")
+<img src='http://i.imgur.com/yhJ6Smz.png "texte pour le titre, facultatif' height="350">
 
-Objectifs:
-- Créer un jeu avec un fort potentiel de rejouabilité
-- Mettre en place des mécanismes simple à comprendre
-- Créer une difficulté élevé
+Goals:
+- Replayability
+- Easy to play
+- "Hard difficult"
 
-Commandes:
-- `Q` ou `Left` permet d'aller vers la gauche
-- `D` ou `Right` permet d'aller vers la droite
-- `P` pour mettre le jeu en pause
-- `B` permet d'acheter de la vie avec son score
-- `R` permet de relancer le jeu
+Commands:
+- `Q` or `Left` to turn left
+- `D` ou `Right` to turn right
+- `P` Paused
+- `B` buy life
+- `R` restart
+- 
+## Authors
+- [Damien Lehericy](https://github.com/damienlehericy/)
+
+## Licence
+The GNU GENERAL PUBLIC LICENSE V2 (GNU GPL V2). Please see License File for more information.
