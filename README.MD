@@ -16,7 +16,7 @@ Commands:
 - `P` Paused
 - `B` buy life
 - `R` restart
-- 
+
 ## Authors
 - [Damien Lehericy](https://github.com/damienlehericy/)
 
