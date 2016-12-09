@@ -1,5 +1,6 @@
 #Tower Jump
 [![Software License](https://img.shields.io/badge/license-GNU%20General%20Public%20License%20v2.0-brightgreen.svg?style=flat-square)](LICENSE)
+[![Code Climate](https://codeclimate.com/github/damienlehericy/Tower-Jump/badges/gpa.svg)](https://codeclimate.com/github/damienlehericy/Tower-Jump)
 
 Builded with Phaser.IO game framework ~1day for school.
 
