@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/damienlehericy/Tower-Jump/badges/gpa.svg)](https://codeclimate.com/github/damienlehericy/Tower-Jump)
 
 Builded with Phaser.IO game framework ~1day for school.
+Wrapped inside electron application.
 
 <img src='http://i.imgur.com/yhJ6Smz.png "texte pour le titre, facultatif' height="350">
 
