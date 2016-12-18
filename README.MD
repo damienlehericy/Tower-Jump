@@ -6,6 +6,7 @@ Builded with Phaser.IO game framework ~1day for school.
 
 <img src='http://i.imgur.com/yhJ6Smz.png "texte pour le titre, facultatif' height="350">
 
+#### The Game
 Goals:
 - Replayability
 - Easy to play
@@ -17,6 +18,18 @@ Commands:
 - `P` Paused
 - `B` buy life
 - `R` restart
+
+#### How to build
+
+First 
+
+`npm install`
+
+Second Install electron package
+
+After that 
+
+`electron-packager . Tower-Jump --platform=yourplatform --icon= tower.icns --out=build/yourplatform`
 
 ## Authors
 - [Damien Lehericy](https://github.com/damienlehericy/)
